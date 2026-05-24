@@ -11,6 +11,55 @@ st.set_page_config(layout="wide")
 
 st.markdown("""
 <style>
+.movie-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 12px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(255, 80, 80, 0.4);
+}
+
+.movie-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-bottom: 12px;
+    min-height: 50px;
+}
+
+.stButton>button {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(255,75,43,0.5);
+}
+
+.stButton>button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 30px rgba(255,75,43,0.9);
+}
+
+img {
+    border-radius: 16px !important;
+    transition: 0.4s ease;
+}
+
+img:hover {
+    transform: scale(1.04);
+}
 
 /* Background */
 .stApp{
