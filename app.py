@@ -139,7 +139,10 @@ def recommend(movie):
     return recommended_movies, recommended_movies_posters
 
 
-st.title("Movie Recommender System")
+st.markdown("""
+<h1 class='main-title'>Movie Recommender System</h1>
+<p class='sub-title'>Discover your next favorite movie 🍿</p>
+""", unsafe_allow_html=True)
 
 movies_list = movies['title'].values
 
@@ -152,24 +155,27 @@ if st.button('Recommend'):
 
     names, posters = recommend(selected_movie)
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    cols = st.columns(5)
 
-    with col1:
-        st.text(names[0])
-        st.image(posters[0])
+    for idx, col in enumerate(cols):
 
-    with col2:
-        st.text(names[1])
-        st.image(posters[1])
+        with col:
 
-    with col3:
-        st.text(names[2])
-        st.image(posters[2])
+            st.markdown(f"""
+            <div class="movie-card">
+                <div class="movie-title">
+                    {names[idx]}
+                </div>
+            """, unsafe_allow_html=True)
 
-    with col4:
-        st.text(names[3])
-        st.image(posters[3])
+            poster = posters[idx]
 
-    with col5:
-        st.text(names[4])
-        st.image(posters[4])
+            if poster and str(poster).startswith("http"):
+                st.image(poster, use_container_width=True)
+            else:
+                st.image(
+                    "https://dummyimage.com/300x450/000/fff&text=No+Poster",
+                    use_container_width=True
+                )
+
+            st.markdown("</div>", unsafe_allow_html=True)
