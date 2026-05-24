@@ -7,7 +7,89 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 API_KEY = "2e3151552627ca728fef1c002b5f401c"
+st.set_page_config(layout="wide")
 
+st.markdown("""
+<style>
+
+/* Background */
+.stApp{
+    background: linear-gradient(to bottom right, #0f0f0f, #1a1a2e);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Main title */
+.main-title{
+    text-align:center;
+    font-size:55px;
+    font-weight:bold;
+    color:white;
+    margin-bottom:0;
+}
+
+.sub-title{
+    text-align:center;
+    color:#aaaaaa;
+    font-size:20px;
+    margin-top:0;
+    margin-bottom:40px;
+}
+
+/* Recommendation button */
+.stButton>button{
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color:white;
+    border:none;
+    border-radius:15px;
+    padding:12px 28px;
+    font-size:18px;
+    font-weight:bold;
+    transition:0.3s;
+    box-shadow:0 4px 15px rgba(255,75,43,0.4);
+}
+
+/* Button hover */
+.stButton>button:hover{
+    transform:scale(1.05);
+    box-shadow:0 6px 25px rgba(255,75,43,0.6);
+}
+
+/* Movie cards */
+.movie-card{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    padding:15px;
+    text-align:center;
+    transition:0.3s;
+    margin-bottom:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Hover effect */
+.movie-card:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow:0 10px 30px rgba(255,255,255,0.15);
+}
+
+/* Movie titles */
+.movie-title{
+    font-size:18px;
+    font-weight:bold;
+    min-height:60px;
+    color:white;
+    margin-bottom:10px;
+}
+
+/* Selectbox */
+.stSelectbox label{
+    font-size:18px;
+    color:white;
+}
+
+</style>
+""", unsafe_allow_html=True)
 
 @st.cache_data(show_spinner=False)
 def fetch_poster(movie_id):
