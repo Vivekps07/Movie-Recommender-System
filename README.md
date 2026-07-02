@@ -60,3 +60,21 @@ streamlit run app.py
 ## 📜 Note
 
 This project was completed as a guided academic project to gain practical experience with recommendation systems, Python, machine learning workflows, and Streamlit deployment.
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home](Home.png)
+
+### Recommendations
+
+![Recommendations](Recommendation.png)
+
+### Results
+
+![Results](Results.png)
+
+### Results
+
+![Results.](Results..png)
